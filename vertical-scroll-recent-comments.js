@@ -1,6 +1,7 @@
 /**
  *     Vertical scroll recent comments
- *     Copyright (C) 2012  www.gopiplus.com
+ *     Copyright (C) 2011 - 2013 www.gopiplus.com
+ *     http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by

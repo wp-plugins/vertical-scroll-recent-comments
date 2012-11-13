@@ -5,8 +5,10 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comme
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Tags: Vertical, scroll, recent, comment, widget
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 9.0
+Tested up to: 3.4.2
+Stable tag: 9.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
 Vertical scroll recent comments wordpress plugin will scroll the recent post comment vertically (bottom to top) in the widget.
 
@@ -63,26 +65,30 @@ Q5. Is possible to hide avatar display from scroll?
 
 == Upgrade Notice ==
 
+= 9.1 =
+
+Tested up to 3.4.2
+
 = 9.0 =
 
 New demo link, www.gopiplus.com
 
 = 8.0 =
 
-Tested uptp 3.4
+Tested up to 3.4
 
 = 7.0 =
 
-Tested uptp 3.3
+Tested up to 3.3
 
 = 6.0 =			
 
 Security fixes (Only admin user can see the plugin menu in the dashboard)				
-Tested upto 3.1.3	
+Tested up to 3.1.3	
 
 = 5.0 =
 
-Tested upto 3.0.
+Tested up to 3.0.
 
 = 4.0 =
 
@@ -98,26 +104,30 @@ First version.
 
 == Changelog ==
 
+= 9.1 =
+
+Tested up to 3.4.2
+
 = 9.0 =
 
 New demo link, www.gopiplus.com
 
 = 8.0 =
 
-Tested uptp 3.4
+Tested up to 3.4
 
 = 7.0 =
 
-Tested uptp 3.3
+Tested up to 3.3
 
 = 6.0 =			
 
 Security fixes (Only admin user can see the plugin menu in the dashboard)				
-Tested upto 3.1.3	
+Tested up to 3.1.3	
 
 = 5.0 =
 
-Tested upto 3.0.
+Tested up to 3.0.
 
 = 4.0 =
 

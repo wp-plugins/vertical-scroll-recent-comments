@@ -6,8 +6,10 @@ Description: Vertical scroll recent comments wordpress plugin will scroll the re
 Author: Gopi.R
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
-Version: 9.0
+Version: 9.1
 Tags: Vertical, scroll, recent, comments, comment, widget
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 vsrc means Vertical scroll recent comments
 */
 
@@ -146,7 +148,7 @@ function vsrc_install()
 
 function vsrc_control() 
 {
-	echo 'Vertical scroll recent comments. To change the setting goto Vertical scroll recent comments link under SETTING tab.';
+	echo 'Vertical scroll recent comments.';
 }
 
 function vsrc_admin_options()
@@ -215,9 +217,9 @@ function vsrc_admin_options()
 	echo $vsrc_select_character . '" name="vsrc_select_character" id="vsrc_select_character" /></p>';
 	
 	echo '<p>';
-	echo 'Display Name:<input name="name_ava" type="radio" value="NAME" '.@$display_name.' />&nbsp;&nbsp;&nbsp;&nbsp;';
-	echo 'Display Avator:<input name="name_ava" type="radio" value="IMAGE" '.@$display_avator.' />&nbsp;&nbsp;&nbsp;&nbsp;';
-	echo 'None:<input name="name_ava" type="radio" value="NONE" '.@$display_none.' /></p>';
+	echo 'Display Name: <input name="name_ava" type="radio" value="NAME" '.@$display_name.' />&nbsp;&nbsp;&nbsp;&nbsp;';
+	echo 'Display Avator: <input name="name_ava" type="radio" value="IMAGE" '.@$display_avator.' />&nbsp;&nbsp;&nbsp;&nbsp;';
+	echo 'None: <input name="name_ava" type="radio" value="NONE" '.@$display_none.' /></p>';
 
 	echo '<input name="vsrc_submit" id="vsrc_submit" lang="publish" class="button-primary" value="Update Setting" type="Submit" />';
 	
@@ -228,16 +230,17 @@ function vsrc_admin_options()
 	</td></tr></table>
 	</form>
     <h2>Plugin configuration</h2>
-	Option 1.	Go to widget menu and drag and drop the "Vertical scroll recent commets" widget to your sidebar location. <br />
-	Option 2.	Copy and past the below mentioned code to your desired template location.
+	<ul>
+	<li>Option 1.	Go to widget menu and drag and drop the "Vertical scroll recent commets" widget to your sidebar location.</li>
+	<li>Option 2.	Copy and past the below mentioned code to your desired template location.</li>
+	</ul>
     <h2>Paste the below code to your desired template location!</h2>
     <div style="padding-top:7px;padding-bottom:7px;">
     <code style="padding:7px;">
     &lt;?php if (function_exists (vsrc)) vsrc(); ?&gt;
     </code></div>
     <h2>About Plugin</h2>
-    <a target="_blank" href='http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/'>click here</a> to post suggestion and comments.  <br /> 
-    <a target="_blank" href='http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/'>click here</a> to see live demo.  <br /> 
+    Check official website for live demo and more information <a target="_blank" href='http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/'>click here</a> <br /> 
 	<?php
 }
 
@@ -258,9 +261,9 @@ function vsrc_init()
 		wp_register_sidebar_widget('vertical-scroll-recent-comments', 'Vertical scroll recent comments', 'vsrc_widget');
 	}
 	
-	if(function_exists('wp_register_sidebar_widget')) 
+	if(function_exists('wp_register_widget_control')) 
 	{
-		wp_register_sidebar_widget('vertical-scroll-recent-comments', array('Vertical scroll recent comments', 'widgets'), 'vsrc_control');
+		wp_register_widget_control('vertical-scroll-recent-comments', array('Vertical scroll recent comments', 'widgets'), 'vsrc_control');
 	} 
 }
 
