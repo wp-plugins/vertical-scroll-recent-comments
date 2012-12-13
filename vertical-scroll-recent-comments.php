@@ -6,7 +6,7 @@ Description: Vertical scroll recent comments wordpress plugin will scroll the re
 Author: Gopi.R
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
-Version: 9.1
+Version: 9.2
 Tags: Vertical, scroll, recent, comments, comment, widget
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -229,18 +229,20 @@ function vsrc_admin_options()
 	
 	</td></tr></table>
 	</form>
-    <h2>Plugin configuration</h2>
+	<br />
+    <strong>Plugin configuration</strong>
 	<ul>
-	<li>Option 1.	Go to widget menu and drag and drop the "Vertical scroll recent commets" widget to your sidebar location.</li>
-	<li>Option 2.	Copy and past the below mentioned code to your desired template location.</li>
+		<li>Option 1.	Drag and drop the widget "Vertical scroll recent commets" to your sidebar location.</li>
+		<li>Option 2.	Add directly in the theme to your desired template location using given PHP code.</li>
 	</ul>
-    <h2>Paste the below code to your desired template location!</h2>
-    <div style="padding-top:7px;padding-bottom:7px;">
-    <code style="padding:7px;">
-    &lt;?php if (function_exists (vsrc)) vsrc(); ?&gt;
-    </code></div>
-    <h2>About Plugin</h2>
-    Check official website for live demo and more information <a target="_blank" href='http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/'>click here</a> <br /> 
+    <strong>Paste the below code to your desired template location!</strong>
+    <ul>
+    	<li><code style="padding:7px;">&lt;?php if (function_exists (vsrc)) vsrc(); ?&gt;</code></li>
+	</ul>
+    <strong>About Plugin</strong>
+	<ul>
+    	<li>Check official website for live demo and more information <a target="_blank" href='http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/'>click here</a></li>
+	</ul>
 	<?php
 }
 
