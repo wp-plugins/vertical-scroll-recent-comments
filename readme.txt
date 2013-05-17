@@ -4,9 +4,9 @@ Donate link: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comm
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Tags: Vertical, scroll, recent, comment, widget
-Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 9.2
+Requires at least: 3.4
+Tested up to: 3.6
+Stable tag: 10.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -56,7 +56,6 @@ Q4. Why only few characters display in scroll?
 
 Q5. Is possible to hide avatar display from scroll?
 
-
 == Screenshots ==
 
 1. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
@@ -64,6 +63,10 @@ Q5. Is possible to hide avatar display from scroll?
 2. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 
 == Upgrade Notice ==
+
+= 10.0 =
+
+Tested up to 3.6
 
 = 9.2 =
 
@@ -107,6 +110,10 @@ I have stopped the ping back records from scroll.
 First version.
 
 == Changelog ==
+
+= 10.0 =
+
+Tested up to 3.6
 
 = 9.2 =
 
