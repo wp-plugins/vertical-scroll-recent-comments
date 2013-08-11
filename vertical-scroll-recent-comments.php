@@ -6,7 +6,7 @@ Description: Vertical scroll recent comments wordpress plugin will scroll the re
 Author: Gopi.R
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
-Version: 10.0
+Version: 10.1
 Tags: Vertical, scroll, recent, comments, comment, widget
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -155,94 +155,94 @@ function vsrc_admin_options()
 {
 	?>
 	<div class="wrap">
-    <h2>Vertical scroll recent comments</h2>
-    </div>
-	<?php
-	
-	$vsrc_title = get_option('vsrc_title');
-	$vsrc_select_num_user = get_option('vsrc_select_num_user');
-	$vsrc_dis_num_user = get_option('vsrc_dis_num_user');
-	$vsrc_dis_num_height = get_option('vsrc_dis_num_height');
-	$vsrc_dis_image_or_name = get_option('vsrc_dis_image_or_name');
-	$vsrc_select_character = get_option('vsrc_select_character');
-	
-	if (@$_POST['vsrc_submit']) 
-	{
-		$vsrc_title = stripslashes($_POST['vsrc_title']);
-		$vsrc_select_num_user = stripslashes($_POST['vsrc_select_num_user']);
-		$vsrc_dis_num_user = stripslashes($_POST['vsrc_dis_num_user']);
-		$vsrc_dis_num_height = stripslashes($_POST['vsrc_dis_num_height']);
-		$vsrc_dis_image_or_name = stripslashes($_POST['name_ava']);
-		$vsrc_select_character = stripslashes($_POST['vsrc_select_character']);
+	  <div class="form-wrap">
+		<div id="icon-edit" class="icon32"></div>
+		<h2>Vertical scroll recent comments</h2>
+		<?php	
+		$vsrc_title = get_option('vsrc_title');
+		$vsrc_select_num_user = get_option('vsrc_select_num_user');
+		$vsrc_dis_num_user = get_option('vsrc_dis_num_user');
+		$vsrc_dis_num_height = get_option('vsrc_dis_num_height');
+		$vsrc_dis_image_or_name = get_option('vsrc_dis_image_or_name');
+		$vsrc_select_character = get_option('vsrc_select_character');
+		if (isset($_POST['vsrc_form_submit']) && $_POST['vsrc_form_submit'] == 'yes')
+		{
+			check_admin_referer('vsrc_form_setting');
+			$vsrc_title = stripslashes($_POST['vsrc_title']);
+			$vsrc_select_num_user = stripslashes($_POST['vsrc_select_num_user']);
+			$vsrc_dis_num_user = stripslashes($_POST['vsrc_dis_num_user']);
+			$vsrc_dis_num_height = stripslashes($_POST['vsrc_dis_num_height']);
+			$vsrc_dis_image_or_name = stripslashes($_POST['name_ava']);
+			$vsrc_select_character = stripslashes($_POST['vsrc_select_character']);
+			update_option('vsrc_title', $vsrc_title );
+			update_option('vsrc_select_num_user', $vsrc_select_num_user );
+			update_option('vsrc_dis_num_user', $vsrc_dis_num_user );
+			update_option('vsrc_dis_num_height', $vsrc_dis_num_height );
+			update_option('vsrc_dis_image_or_name', $vsrc_dis_image_or_name );
+			update_option('vsrc_select_character', $vsrc_select_character );
+			?>
+			<div class="updated fade">
+				<p><strong>Details successfully updated.</strong></p>
+			</div>
+			<?php
+		}
+		if($vsrc_dis_image_or_name == "NAME")
+		{
+			$display_name = 'checked="checked"';
+		}
+		elseif($vsrc_dis_image_or_name == "IMAGE")
+		{
+			$display_avator = 'checked="checked"';
+		}
+		else
+		{
+			$display_none = 'checked="checked"';
+		}
+		?>
+		<form name="vsrc_form" method="post" action="">
+		    <h3>Widget setting</h3>
 		
-		update_option('vsrc_title', $vsrc_title );
-		update_option('vsrc_select_num_user', $vsrc_select_num_user );
-		update_option('vsrc_dis_num_user', $vsrc_dis_num_user );
-		update_option('vsrc_dis_num_height', $vsrc_dis_num_height );
-		update_option('vsrc_dis_image_or_name', $vsrc_dis_image_or_name );
-		update_option('vsrc_select_character', $vsrc_select_character );
-	}
-	
-	if($vsrc_dis_image_or_name == "NAME")
-	{
-		$display_name = "checked";
-	}
-	elseif($vsrc_dis_image_or_name == "IMAGE")
-	{
-		$display_avator = "checked";
-	}
-	else
-	{
-		$display_none = "checked";
-	}
-	
-	?>
-	<form name="vsrc_form" method="post" action="">
-	<table width="100%" border="0" cellspacing="0" cellpadding="3"><tr><td width="82%" align="left">
-	<?php
-
-	echo '<p>Title:<br><input  style="width: 200px;" type="text" value="';
-	echo $vsrc_title . '" name="vsrc_title" id="vsrc_title" /></p>';
-	
-	echo '<p>Each comments height in the widget:<br><input  style="width: 100px;" type="text" value="';
-	echo $vsrc_dis_num_height . '" name="vsrc_dis_num_height" id="vsrc_dis_num_height" /><br>If any overlap in the structure at front end, you should arrange this height (increase this height)</p>';
-	
-	echo '<p>Display number of comments at the same time in scroll:<br><input  style="width: 100px;" type="text" value="';
-	echo $vsrc_dis_num_user . '" name="vsrc_dis_num_user" id="vsrc_dis_num_user" /></p>';
-	
-	echo '<p>Enter max number of comments to scroll:<br><input  style="width: 100px;" type="text" value="';
-	echo $vsrc_select_num_user . '" name="vsrc_select_num_user" id="vsrc_select_num_user" /></p>';
-	
-	echo '<p>Enter comment character length:<br><input  style="width: 100px;" type="text" value="';
-	echo $vsrc_select_character . '" name="vsrc_select_character" id="vsrc_select_character" /></p>';
-	
-	echo '<p>';
-	echo 'Display Name: <input name="name_ava" type="radio" value="NAME" '.@$display_name.' />&nbsp;&nbsp;&nbsp;&nbsp;';
-	echo 'Display Avator: <input name="name_ava" type="radio" value="IMAGE" '.@$display_avator.' />&nbsp;&nbsp;&nbsp;&nbsp;';
-	echo 'None: <input name="name_ava" type="radio" value="NONE" '.@$display_none.' /></p>';
-
-	echo '<input name="vsrc_submit" id="vsrc_submit" lang="publish" class="button-primary" value="Update Setting" type="Submit" />';
-	
-	?>
-	</td>
-	<td width="18%" align="left" valign="middle"> 
-	
-	</td></tr></table>
-	</form>
-	<br />
-    <strong>Plugin configuration</strong>
-	<ul>
-		<li>Option 1.	Drag and drop the widget "Vertical scroll recent commets" to your sidebar location.</li>
-		<li>Option 2.	Add directly in the theme to your desired template location using given PHP code.</li>
-	</ul>
-    <strong>Paste the below code to your desired template location!</strong>
-    <ul>
-    	<li><code style="padding:7px;">&lt;?php if (function_exists (vsrc)) vsrc(); ?&gt;</code></li>
-	</ul>
-    <strong>About Plugin</strong>
-	<ul>
-    	<li>Check official website for live demo and more information <a target="_blank" href="http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/">click here</a></li>
-	</ul>
+			<label for="tag-width">Widget title</label>
+			<input name="vsrc_title" type="text" value="<?php echo $vsrc_title; ?>"  id="vsrc_title" size="50" maxlength="150">
+			<p>Please enter your widget title.</p>
+			
+			<label for="tag-width">Height</label>
+			<input name="vsrc_dis_num_height" type="text" value="<?php echo $vsrc_dis_num_height; ?>"  id="vsrc_dis_num_height" maxlength="4">
+			<p>Please enter your height. If any overlap in the scroll at front end, <br />You should arrange this height (increase/decrease this height). (Example: 10)</p>
+			
+			<label for="tag-width">Display count</label>
+			<input name="vsrc_dis_num_user" type="text" value="<?php echo $vsrc_dis_num_user; ?>"  id="vsrc_dis_num_user" maxlength="2">
+			<p>Please enter your display count. Display number of comments at the same time in scroll. (Example: 5)</p>
+			
+			<label for="tag-width">Scroll comment count</label>
+			<input name="vsrc_select_num_user" type="text" value="<?php echo $vsrc_select_num_user; ?>"  id="vsrc_select_num_user" maxlength="3">
+			<p>Please enter your scroll comment count. Enter max number of comments to scroll. (Example: 10)</p>
+			
+			<label for="tag-width">Comments length</label>
+			<input name="vsrc_select_character" type="text" value="<?php echo $vsrc_select_character; ?>"  id="vsrc_select_character" maxlength="3">
+			<p>Please enter number of comment characters you like to display in the scroll. (Example: 50)</p>
+			
+			<label for="tag-width"></label>
+			Display name : <input name="name_ava" id="name_ava" type="radio" value="NAME" <?php echo $display_name; ?> /> &nbsp;  &nbsp; 
+			Display Avator : <input name="name_ava" id="name_ava" type="radio" value="IMAGE" <?php echo $display_avator; ?> /> &nbsp;  &nbsp; 
+			None : <input name="name_ava" id="name_ava" type="radio" value="NONE" <?php echo $display_none; ?> />
+			<p>Please select your disply option.</p>
+			
+			<p class="submit">
+				<input name="vsrc_submit" id="vsrc_submit" class="button" value="Submit" type="submit" />&nbsp;
+				<a class="button" target="_blank" href="http://www.gopiplus.com/work/2010/07/18/translucent-image-slideshow-gallery/">Help</a>
+			</p>
+			<input type="hidden" name="vsrc_form_submit" value="yes"/>
+			<?php wp_nonce_field('vsrc_form_setting'); ?>
+		</form>
+		</div>
+		<h3>Plugin configuration option</h3>
+		<ol>
+			<li>Add directly in to the theme using PHP code.</li>
+			<li>Drag and drop the widget to your sidebar.</li>
+		</ol>
+	  <p class="description">Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/">click here</a></p>
+	</div>
 	<?php
 }
 
@@ -281,7 +281,7 @@ if (is_admin())
 
 function vsrc_deactivation() 
 {
-	
+	// No action required.
 }
 
 add_action("plugins_loaded", "vsrc_init");

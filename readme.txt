@@ -6,7 +6,7 @@ Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comme
 Tags: Vertical, scroll, recent, comment, widget
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 10.0
+Stable tag: 10.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -64,6 +64,10 @@ Q5. Is possible to hide avatar display from scroll?
 
 == Upgrade Notice ==
 
+= 10.1 =
+
+Minor change in the admin layout.
+
 = 10.0 =
 
 Tested up to 3.6
@@ -110,6 +114,10 @@ I have stopped the ping back records from scroll.
 First version.
 
 == Changelog ==
+
+= 10.1 =
+
+Minor change in the admin layout.
 
 = 10.0 =
 
