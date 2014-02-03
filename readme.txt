@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comme
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Tags: Vertical, scroll, recent, comment, widget
 Requires at least: 3.4
-Tested up to: 3.6
-Stable tag: 10.1
+Tested up to: 3.8
+Stable tag: 10.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -58,11 +58,17 @@ Q5. Is possible to hide avatar display from scroll?
 
 == Screenshots ==
 
-1. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
+1. Front Screen. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 
-2. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
+2. Admin Screen. http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 
 == Upgrade Notice ==
+
+= 10.2 =
+
+1. Tested up to 3.8
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (vertical-scroll-recent-comments.po) available in the languages folder.
 
 = 10.1 =
 
@@ -114,6 +120,12 @@ I have stopped the ping back records from scroll.
 First version.
 
 == Changelog ==
+
+= 10.2 =
+
+1. Tested up to 3.8
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (vertical-scroll-recent-comments.po) available in the languages folder.
 
 = 10.1 =
 
