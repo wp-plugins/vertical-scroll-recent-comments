@@ -2,10 +2,10 @@
 /*
 Plugin Name: Vertical scroll recent comments
 Description: Vertical scroll recent comments wordpress plugin will scroll the recent post comment vertically (bottom to top) in the widget.
-Author: Gopi.R
+Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
-Version: 10.2
+Version: 10.3
 Tags: Vertical, scroll, recent, comments, comment, widget
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -75,12 +75,12 @@ function vsrc()
 			elseif(get_option('vsrc_dis_image_or_name') == "IMAGE")
 			{
 				$vsrc_html = $vsrc_html . "<span class='vsrc-regimag'>$avatar</span>";
-				$avatar = mysql_real_escape_string($avatar);
+				$avatar = esc_sql($avatar);
 				$vsrc_js_html = "<span class=\'vsrc-regimag\'>$avatar</span>";
 			}
 			$vsrc_html = $vsrc_html . "<span>$vsrc_post_title...</span>";
 			$vsrc_html = $vsrc_html . "</div>";
-			$vsrc_post_title = mysql_real_escape_string(trim($vsrc_post_title));
+			$vsrc_post_title = esc_sql(trim($vsrc_post_title));
 			$post_link    = get_permalink($vsrc_data->comment_post_ID);
 			$comment_link = $post_link ."#comment-$vsrc_data->comment_ID";
 			$vsrc_post_title = "<a href=\'$comment_link\'>$vsrc_post_title ...</a>";
