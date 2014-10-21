@@ -31,7 +31,8 @@ function vsrc_scroll() {
 			}
 		}
 	} else {
-		setTimeout("vsrc_scroll();", 10);
+		var speed = 60 - ( vsrc_speed * 10 );
+		setTimeout("vsrc_scroll();", speed);
 	}
 }
 
@@ -65,5 +66,5 @@ function vsrc_content() {
 	vsrc_numScrolls 	= vsrc_array.length;
 	vsrc_obj.scrollTop 	= '0';
 	// start scrolling
-	setTimeout("vsrc_scroll();", 2000);
+	setTimeout("vsrc_scroll();", vsrc_waitseconds * 2000);
 }

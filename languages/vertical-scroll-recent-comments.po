@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Vertical scroll recent comments\n"
-"POT-Creation-Date: 2014-08-10 21:53+0800\n"
-"PO-Revision-Date: 2014-08-10 21:53+0800\n"
+"POT-Creation-Date: 2014-10-21 22:54+0800\n"
+"PO-Revision-Date: 2014-10-21 22:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: www.gopiplus.com <www.gopiplus.com>\n"
 "MIME-Version: 1.0\n"
@@ -13,112 +13,144 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../vertical-scroll-recent-comments.php:150
-#: ../vertical-scroll-recent-comments.php:162
-#: ../vertical-scroll-recent-comments.php:269
-#: ../vertical-scroll-recent-comments.php:275
-#: ../vertical-scroll-recent-comments.php:281
-#: ../vertical-scroll-recent-comments.php:282
+#: ../vertical-scroll-recent-comments.php:160
+#: ../vertical-scroll-recent-comments.php:172
+#: ../vertical-scroll-recent-comments.php:299
+#: ../vertical-scroll-recent-comments.php:305
+#: ../vertical-scroll-recent-comments.php:311
+#: ../vertical-scroll-recent-comments.php:312
 msgid "Vertical scroll recent comments"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:152
-#: ../vertical-scroll-recent-comments.php:249
+#: ../vertical-scroll-recent-comments.php:162
+#: ../vertical-scroll-recent-comments.php:279
 msgid "Check official website for more information"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:153
-#: ../vertical-scroll-recent-comments.php:250
+#: ../vertical-scroll-recent-comments.php:163
+#: ../vertical-scroll-recent-comments.php:280
 msgid "click here"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:190
+#: ../vertical-scroll-recent-comments.php:210
 msgid "Details successfully updated."
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:208
+#: ../vertical-scroll-recent-comments.php:228
 msgid "Widget setting"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:210
+#: ../vertical-scroll-recent-comments.php:230
 msgid "Widget title"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:212
+#: ../vertical-scroll-recent-comments.php:232
 msgid "Please enter your widget title."
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:214
+#: ../vertical-scroll-recent-comments.php:234
 msgid "Height"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:216
+#: ../vertical-scroll-recent-comments.php:236
 msgid ""
 "Please enter your height. If any overlap in the scroll at front end, <br /"
 ">You should arrange this height (increase/decrease this height)."
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:218
+#: ../vertical-scroll-recent-comments.php:238
 msgid "Display count"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:220
+#: ../vertical-scroll-recent-comments.php:240
 msgid ""
 "Please enter your display count. Display number of comments at the same time "
 "in scroll."
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:222
+#: ../vertical-scroll-recent-comments.php:242
 msgid "Scroll comment count"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:224
+#: ../vertical-scroll-recent-comments.php:244
 msgid ""
 "Please enter your scroll comment count. Enter max number of comments to "
 "scroll."
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:226
+#: ../vertical-scroll-recent-comments.php:246
 msgid "Comments length"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:228
+#: ../vertical-scroll-recent-comments.php:248
 msgid ""
 "Please enter number of comment characters you like to display in the scroll."
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:231
+#: ../vertical-scroll-recent-comments.php:250
+msgid "Display Options"
+msgstr ""
+
+#: ../vertical-scroll-recent-comments.php:251
 msgid "Display name :"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:232
+#: ../vertical-scroll-recent-comments.php:252
 msgid "Display Avator :"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:233
+#: ../vertical-scroll-recent-comments.php:253
 msgid "None :"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:234
+#: ../vertical-scroll-recent-comments.php:254
 msgid "Please select your disply option."
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:237
+#: ../vertical-scroll-recent-comments.php:256
+msgid "Scrolling speed"
+msgstr ""
+
+#: ../vertical-scroll-recent-comments.php:257
+msgid "Slow"
+msgstr ""
+
+#: ../vertical-scroll-recent-comments.php:259
+msgid "Fast"
+msgstr ""
+
+#: ../vertical-scroll-recent-comments.php:260
+msgid "Select how fast you want the to scroll the items."
+msgstr ""
+
+#: ../vertical-scroll-recent-comments.php:262
+msgid "Seconds to wait"
+msgstr ""
+
+#: ../vertical-scroll-recent-comments.php:264
+msgid "How many seconds you want the wait to scroll"
+msgstr ""
+
+#: ../vertical-scroll-recent-comments.php:264
+msgid "Example"
+msgstr ""
+
+#: ../vertical-scroll-recent-comments.php:267
 msgid "Submit"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:238
+#: ../vertical-scroll-recent-comments.php:268
 msgid "Help"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:244
+#: ../vertical-scroll-recent-comments.php:274
 msgid "Plugin configuration option"
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:246
+#: ../vertical-scroll-recent-comments.php:276
 msgid "Add directly in to the theme using PHP code."
 msgstr ""
 
-#: ../vertical-scroll-recent-comments.php:247
+#: ../vertical-scroll-recent-comments.php:277
 msgid "Drag and drop the widget to your sidebar."
 msgstr ""

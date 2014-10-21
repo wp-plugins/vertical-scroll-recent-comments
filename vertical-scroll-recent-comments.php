@@ -5,7 +5,7 @@ Description: Vertical scroll recent comments wordpress plugin will scroll the re
 Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
-Version: 10.4
+Version: 10.5
 Tags: Vertical, scroll, recent, comments, comment, widget
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,6 +30,12 @@ function vsrc()
 	$dis_num_user = get_option('vsrc_dis_num_user');
 	$dis_num_height = get_option('vsrc_dis_num_height');
 	$vsrc_select_character = get_option('vsrc_select_character');
+	
+	$vsrc_speed = get_option('vsrc_speed');
+	$vsrc_waitseconds = get_option('vsrc_waitseconds');
+	if(!is_numeric($vsrc_speed)) { $vsrc_speed = 2; }
+	if(!is_numeric($vsrc_waitseconds)) { $vsrc_waitseconds = 2; }
+	
 	if(!is_numeric($num_user))
 	{
 		$num_user = 5;
@@ -114,6 +120,8 @@ function vsrc()
 		var vsrc_numScrolls	= '';
 		var vsrc_heightOfElm = '<?php echo $dis_num_height; ?>';
 		var vsrc_numberOfElm = '<?php echo $vsrc_count; ?>';
+		var vsrc_speed 		= '<?php echo $vsrc_speed; ?>';
+        var vsrc_waitseconds = '<?php echo $vsrc_waitseconds; ?>';
 		var vsrc_scrollOn 	= 'true';
 		function vsrc_createscroll() 
 		{
@@ -142,6 +150,8 @@ function vsrc_install()
 	add_option('vsrc_dis_num_height', "60");
 	add_option('vsrc_dis_image_or_name', "NAME");
 	add_option('vsrc_select_character', "50");
+	add_option('vsrc_speed', "2");
+	add_option('vsrc_waitseconds', "2");
 }
 
 function vsrc_control() 
@@ -170,6 +180,10 @@ function vsrc_admin_options()
 		$vsrc_dis_num_height = get_option('vsrc_dis_num_height');
 		$vsrc_dis_image_or_name = get_option('vsrc_dis_image_or_name');
 		$vsrc_select_character = get_option('vsrc_select_character');
+		
+		$vsrc_speed = get_option('vsrc_speed');
+		$vsrc_waitseconds = get_option('vsrc_waitseconds');
+		
 		if (isset($_POST['vsrc_form_submit']) && $_POST['vsrc_form_submit'] == 'yes')
 		{
 			check_admin_referer('vsrc_form_setting');
@@ -179,12 +193,18 @@ function vsrc_admin_options()
 			$vsrc_dis_num_height = stripslashes($_POST['vsrc_dis_num_height']);
 			$vsrc_dis_image_or_name = stripslashes($_POST['name_ava']);
 			$vsrc_select_character = stripslashes($_POST['vsrc_select_character']);
+			$vsrc_speed = stripslashes($_POST['vsrc_speed']);
+			$vsrc_waitseconds = stripslashes($_POST['vsrc_waitseconds']);
+			
 			update_option('vsrc_title', $vsrc_title );
 			update_option('vsrc_select_num_user', $vsrc_select_num_user );
 			update_option('vsrc_dis_num_user', $vsrc_dis_num_user );
 			update_option('vsrc_dis_num_height', $vsrc_dis_num_height );
 			update_option('vsrc_dis_image_or_name', $vsrc_dis_image_or_name );
 			update_option('vsrc_select_character', $vsrc_select_character );
+			
+			update_option('vsrc_speed', $vsrc_speed );
+			update_option('vsrc_waitseconds', $vsrc_waitseconds );
 			?>
 			<div class="updated fade">
 				<p><strong><?php _e('Details successfully updated.' , 'vertical-scroll-recent-comments'); ?></strong></p>
@@ -207,31 +227,41 @@ function vsrc_admin_options()
 		<form name="vsrc_form" method="post" action="">
 		    <h3><?php _e('Widget setting' , 'vertical-scroll-recent-comments'); ?></h3>
 		
-			<label for="tag-width"><?php _e('Widget title' , 'vertical-scroll-recent-comments'); ?></label>
+			<label for="tag-width"><strong><?php _e('Widget title' , 'vertical-scroll-recent-comments'); ?></strong></label>
 			<input name="vsrc_title" type="text" value="<?php echo $vsrc_title; ?>"  id="vsrc_title" size="50" maxlength="150">
 			<p><?php _e('Please enter your widget title.' , 'vertical-scroll-recent-comments'); ?></p>
 			
-			<label for="tag-width"><?php _e('Height' , 'vertical-scroll-recent-comments'); ?></label>
+			<label for="tag-width"><strong><?php _e('Height' , 'vertical-scroll-recent-comments'); ?></strong></label>
 			<input name="vsrc_dis_num_height" type="text" value="<?php echo $vsrc_dis_num_height; ?>"  id="vsrc_dis_num_height" maxlength="4">
 			<p><?php _e('Please enter your height. If any overlap in the scroll at front end, <br />You should arrange this height (increase/decrease this height).' , 'vertical-scroll-recent-comments'); ?> (Example: 10)</p>
 			
-			<label for="tag-width"><?php _e('Display count' , 'vertical-scroll-recent-comments'); ?></label>
+			<label for="tag-width"><strong><?php _e('Display count' , 'vertical-scroll-recent-comments'); ?></strong></label>
 			<input name="vsrc_dis_num_user" type="text" value="<?php echo $vsrc_dis_num_user; ?>"  id="vsrc_dis_num_user" maxlength="2">
 			<p><?php _e('Please enter your display count. Display number of comments at the same time in scroll.' , 'vertical-scroll-recent-comments'); ?> (Example: 5)</p>
 			
-			<label for="tag-width"><?php _e('Scroll comment count' , 'vertical-scroll-recent-comments'); ?></label>
+			<label for="tag-width"><strong><?php _e('Scroll comment count' , 'vertical-scroll-recent-comments'); ?></strong></label>
 			<input name="vsrc_select_num_user" type="text" value="<?php echo $vsrc_select_num_user; ?>"  id="vsrc_select_num_user" maxlength="3">
 			<p><?php _e('Please enter your scroll comment count. Enter max number of comments to scroll.' , 'vertical-scroll-recent-comments'); ?> (Example: 10)</p>
 			
-			<label for="tag-width"><?php _e('Comments length' , 'vertical-scroll-recent-comments'); ?></label>
+			<label for="tag-width"><strong><?php _e('Comments length' , 'vertical-scroll-recent-comments'); ?></strong></label>
 			<input name="vsrc_select_character" type="text" value="<?php echo $vsrc_select_character; ?>"  id="vsrc_select_character" maxlength="3">
 			<p><?php _e('Please enter number of comment characters you like to display in the scroll.' , 'vertical-scroll-recent-comments'); ?> (Example: 50)</p>
 			
-			<label for="tag-width"></label>
+			<label for="tag-width"><strong><?php _e('Display Options' , 'vertical-scroll-recent-comments'); ?></strong></label>
 			<?php _e('Display name :' , 'vertical-scroll-recent-comments'); ?> <input name="name_ava" id="name_ava" type="radio" value="NAME" <?php echo $display_name; ?> /> &nbsp;  &nbsp; 
 			<?php _e('Display Avator :' , 'vertical-scroll-recent-comments'); ?> <input name="name_ava" id="name_ava" type="radio" value="IMAGE" <?php echo $display_avator; ?> /> &nbsp;  &nbsp; 
 			<?php _e('None :' , 'vertical-scroll-recent-comments'); ?> <input name="name_ava" id="name_ava" type="radio" value="NONE" <?php echo $display_none; ?> />
 			<p><?php _e('Please select your disply option.' , 'vertical-scroll-recent-comments'); ?></p>
+			
+			<label for="vsrc_speed"><strong><?php _e('Scrolling speed', 'vertical-scroll-recent-comments'); ?></strong></label>
+			<?php _e( 'Slow', 'vertical-scroll-recent-comments' ); ?> 
+			<input name="vsrc_speed" type="range" value="<?php echo $vsrc_speed; ?>"  id="vsrc_speed" min="1" max="10" /> 
+			<?php _e( 'Fast', 'vertical-scroll-recent-comments' ); ?> 
+			<p><?php _e('Select how fast you want the to scroll the items.', 'vertical-scroll-recent-comments'); ?></p>
+			
+			<label for="vsrc_waitseconds"><strong><?php _e( 'Seconds to wait', 'vertical-scroll-recent-comments' ); ?></strong></label>
+			<input name="vsrc_waitseconds" type="text" value="<?php echo $vsrc_waitseconds; ?>" id="vsrc_waitseconds" maxlength="4" />
+			<p><?php _e( 'How many seconds you want the wait to scroll', 'vertical-scroll-recent-comments' ); ?> (<?php _e( 'Example', 'vertical-scroll-recent-comments' ); ?>: 5)</p>
 			
 			<p class="submit">
 				<input name="vsrc_submit" id="vsrc_submit" class="button" value="<?php _e('Submit' , 'vertical-scroll-recent-comments'); ?>" type="submit" />&nbsp;
