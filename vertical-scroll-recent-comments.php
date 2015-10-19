@@ -5,11 +5,13 @@ Description: Vertical scroll recent comments wordpress plugin will scroll the re
 Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/vertical-scroll-recent-comments/
-Version: 10.8
+Version: 10.9
 Tags: Vertical, scroll, recent, comments, comment, widget
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 vsrc means Vertical scroll recent comments
+Text Domain: vertical-scroll-recent-comments
+Domain Path: /languages
 */
 
 function vsrc() 
